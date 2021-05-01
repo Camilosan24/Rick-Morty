@@ -1,15 +1,18 @@
-import React from "react";
-
-const Card = ({ id, name, image, genre }) => {
+import CharacterImage from "./CharacterImage";
+import Fact from "./Fact";
+const Card = ({character, setTemporalCharater}) => {
 	return (
 		<div className="card">
-			<div className="character-image">
-            <img src={image} width="50px" height="50px" alt=""/>
-         </div>
+			<CharacterImage image={character.image} />
 			<div className="character-information">
-				<span>Nombre:{name}</span>
-				<span>Genero:{genre}</span>
+				<Fact type="Nombre" data={character.name} />
+				<Fact type="Género" data={character.gender} />
+				<Fact type="Estado" data={character.status} />
+				<Fact type="Ubicación" data={character.location.name} />
 			</div>
+			<button className="btn see-more" onClick={()=> setTemporalCharater([true, character])}>
+				Ver mas...
+			</button>
 		</div>
 	);
 };
