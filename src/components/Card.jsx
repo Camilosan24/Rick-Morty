@@ -1,6 +1,11 @@
 import CharacterImage from "./CharacterImage";
 import Fact from "./Fact";
-const Card = ({character, setTemporalCharater}) => {
+import { useHistory } from "react-router-dom";
+const Card = ({ character }) => {
+	const history = useHistory();
+	const goToCharacter = () => {
+		return history.push(`/character/${character.id}`);
+	};
 	return (
 		<div className="card">
 			<CharacterImage image={character.image} />
@@ -10,7 +15,7 @@ const Card = ({character, setTemporalCharater}) => {
 				<Fact type="Estado" data={character.status} />
 				<Fact type="Ubicación" data={character.location.name} />
 			</div>
-			<button className="btn see-more" onClick={()=> setTemporalCharater([true, character])}>
+			<button className="btn see-more" onClick={goToCharacter}>
 				Ver mas...
 			</button>
 		</div>

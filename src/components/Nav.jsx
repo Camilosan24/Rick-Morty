@@ -1,7 +1,7 @@
 import rickAndMorty from "../svg/rickymorty.png";
 import SearchInput from "./SearchInput";
 
-const Nav = ({ setSearchCharacter, searchCharacter }) => {
+const Nav = () => {
 	return (
 		<nav className="nav">
 			<div className="icon-image">
@@ -12,10 +12,7 @@ const Nav = ({ setSearchCharacter, searchCharacter }) => {
 			</div>
 			{/* <div className="navbar-items"></div> */}
 			<div className="navbar-search">
-				<SearchInput
-					setSearchCharacter={setSearchCharacter}
-					searchCharacter={searchCharacter}
-				/>
+				<SearchInput />
 			</div>
 		</nav>
 	);
